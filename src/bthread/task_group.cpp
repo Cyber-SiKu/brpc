@@ -622,7 +622,9 @@ void TaskGroup::sched_to(TaskGroup** pg, TaskMeta* next_meta) {
 
         if (cur_meta->stack != NULL) {
             if (next_meta->stack != cur_meta->stack) {
+                LOG(INFO) << "1.1";
                 jump_stack(cur_meta->stack, next_meta->stack);
+                LOG(INFO) << "1.2";
                 // probably went to another group, need to assign g again.
                 g = BAIDU_GET_VOLATILE_THREAD_LOCAL(tls_task_group);
             }

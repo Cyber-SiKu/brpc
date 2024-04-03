@@ -251,3 +251,16 @@ refresh_compile_commands(
     },
     # For more details, feel free to look into refresh_compile_commands.bzl if you want.
 )
+
+cc_binary(
+    name = "test",
+    srcs = glob([
+        "test/main.cpp",
+    ]),
+    copts = COPTS,
+    visibility = ["//visibility:public"],
+    deps = [
+        ":sstream_workaround",
+        "//:brpc",
+    ],
+)
